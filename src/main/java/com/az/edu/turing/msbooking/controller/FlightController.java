@@ -26,7 +26,8 @@ public class FlightController {
     }
 
     @PostMapping
-    public ResponseEntity<FlightDto> create(@Valid @RequestBody CreateFlightRequest createFlightRequest, @RequestHeader("role") String role) {
+    public ResponseEntity<FlightDto> create(@Valid @RequestBody CreateFlightRequest createFlightRequest,
+                                            @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -55,7 +56,8 @@ public class FlightController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@Min(1) @NotNull @PathVariable("id") Long flightId, @RequestHeader("role") String role) {
+    public ResponseEntity<Void> delete(@Min(1) @NotNull @PathVariable("id") Long flightId,
+                                       @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }

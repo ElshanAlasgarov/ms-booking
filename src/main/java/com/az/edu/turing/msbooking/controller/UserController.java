@@ -22,7 +22,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@Valid @RequestBody CreateUserRequest createUserRequest, @RequestHeader("role") String role) {
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody CreateUserRequest createUserRequest,
+                                              @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -40,7 +41,9 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@PathVariable Long id, @Valid @RequestBody UpdateUserRequest updateUserRequest, @RequestHeader("role") String role) {
+    public ResponseEntity<UserDto> updateUser(@PathVariable Long id,
+                                              @Valid @RequestBody UpdateUserRequest updateUserRequest,
+                                              @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }

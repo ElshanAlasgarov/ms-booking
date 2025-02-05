@@ -24,7 +24,8 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping
-    public ResponseEntity<BookingDto> create(@Valid @RequestBody CreateBookingRequest createBookingRequest, @RequestHeader("role") String role) {
+    public ResponseEntity<BookingDto> create(@Valid @RequestBody CreateBookingRequest createBookingRequest,
+                                             @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -37,7 +38,7 @@ public class BookingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BookingDto> getFlightById(@NotNull @PathVariable Long id) {
+    public ResponseEntity<BookingDto> getBookingById(@NotNull @PathVariable Long id) {
         return ResponseEntity.ok(bookingService.getBookingById(id));
     }
 
@@ -53,7 +54,8 @@ public class BookingController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@Min(1) @NotNull @PathVariable("id") Long id, @RequestHeader("role") String role) {
+    public ResponseEntity<Void> delete(@Min(1) @NotNull @PathVariable("id") Long id,
+                                       @RequestHeader("role") String role) {
         if (!"ADMIN".equalsIgnoreCase(role)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
