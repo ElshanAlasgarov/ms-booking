@@ -1,7 +1,8 @@
-package com.az.edu.turing.msbooking.model.dto.response;
+package com.az.edu.turing.msbooking.model.dto.request;
 
 import com.az.edu.turing.msbooking.model.enums.City;
 import com.az.edu.turing.msbooking.model.enums.FlightStatus;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +15,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FlightDto {
+public class UpdateFlightRequest {
 
-    private Long id;
     private String flightNumber;
     private LocalDateTime departureDateTime;
     private LocalDateTime arrivalDateTime;

@@ -1,6 +1,5 @@
-package com.az.edu.turing.msbooking.model.dto.response;
+package com.az.edu.turing.msbooking.model.dto.request;
 
-import com.az.edu.turing.msbooking.model.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,15 +7,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+@AllArgsConstructor
+public class UpdateUserRequest {
 
-    private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    private UserStatus status;
+    private String status;
     private String role;
 }

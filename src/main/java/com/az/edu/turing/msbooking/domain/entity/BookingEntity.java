@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "booking")
+@Table(name = "bookings")
 public class BookingEntity extends BaseEntity {
 
     @Column(name = "booking_date", nullable = false)
@@ -25,7 +25,7 @@ public class BookingEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private BookingStatus status;
+    private BookingStatus bookingStatus;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_status", nullable = false)
@@ -35,11 +35,11 @@ public class BookingEntity extends BaseEntity {
     @Column(name = "room_type", nullable = false)
     private RoomType roomType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "flight_id", nullable = false)
-    private FlightEntity flight;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserEntity user;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "flight_id", nullable = false)
+//    private FlightEntity flight;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private UserEntity user;
 }

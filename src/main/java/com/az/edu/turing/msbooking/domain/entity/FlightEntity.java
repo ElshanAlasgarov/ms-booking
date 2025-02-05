@@ -2,12 +2,13 @@ package com.az.edu.turing.msbooking.domain.entity;
 
 import com.az.edu.turing.msbooking.model.enums.City;
 import com.az.edu.turing.msbooking.model.enums.FlightStatus;
+import com.az.edu.turing.msbooking.model.enums.Role;
+import com.az.edu.turing.msbooking.model.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -15,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "flight")
+@Table(name = "flights")
 public class FlightEntity extends BaseEntity {
 
     @Column(name = "flight_number", nullable = false)
@@ -29,7 +30,7 @@ public class FlightEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private FlightStatus status;
+    private FlightStatus flightStatus;
 
     @Column(name = "price", nullable = false)
     private BigDecimal price;
@@ -45,6 +46,4 @@ public class FlightEntity extends BaseEntity {
     @Column(name = "arrival_city", nullable = false)
     private City arrivalCity;
 
-    @OneToMany(mappedBy = "flight")
-    List<BookingEntity> bookings;
 }

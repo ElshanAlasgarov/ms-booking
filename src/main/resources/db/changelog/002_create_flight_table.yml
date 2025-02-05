@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
       id: 002
-      author: elshan alasgarov
+      author: Emin Eyvazov
       changes:
         - createTable:
-            tableName: flight
+            tableName: flights
             columns:
               - column:
                   name: id

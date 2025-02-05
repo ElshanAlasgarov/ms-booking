@@ -29,7 +29,7 @@ public class CreateFlightRequest {
     private LocalDateTime arrivalDateTime;
 
     @NotNull
-    private FlightStatus status;
+    private FlightStatus flightStatus;
 
     @NotNull
     @Positive(message = "Price must be greater than 0")

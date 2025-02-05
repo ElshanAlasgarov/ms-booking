@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
       id: 001
-      author: elshan alasgarov
+      author: Elshan Alasgarov
       changes:
         - createTable:
-            tableName: user
+            tableName: useres
             columns:
               - column:
                   name: id
@@ -60,3 +60,8 @@ databaseChangeLog:
                   defaultValueComputed: CURRENT_TIMESTAMP
                   constraints:
                     nullable: true
+              - column:
+                  name: role
+                  type: VARCHAR(15)
+                  constraints:
+                    nullable: false

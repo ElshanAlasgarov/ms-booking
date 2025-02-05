@@ -1,10 +1,9 @@
 package com.az.edu.turing.msbooking.domain.entity;
 
+import com.az.edu.turing.msbooking.model.enums.Role;
 import com.az.edu.turing.msbooking.model.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -12,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "useres")
 public class UserEntity extends BaseEntity {
 
     @Column(name = "first_name", nullable = false)
@@ -31,6 +30,8 @@ public class UserEntity extends BaseEntity {
     @Column(name = "status", nullable = false)
     private UserStatus status;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<BookingEntity> bookings;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
+
 }

@@ -1,4 +1,4 @@
-package com.az.edu.turing.msbooking.model.dto.response;
+package com.az.edu.turing.msbooking.model.dto.request;
 
 import com.az.edu.turing.msbooking.model.enums.BookingStatus;
 import com.az.edu.turing.msbooking.model.enums.PaymentStatus;
@@ -10,16 +10,17 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDto {
+public class UpdateBookingRequest {
 
-    private Long id;
     private LocalDateTime bookingDate;
     private String seatNumber;
     private BookingStatus bookingStatus;
     private PaymentStatus paymentStatus;
     private RoomType roomType;
+
 }

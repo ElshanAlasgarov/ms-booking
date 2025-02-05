@@ -31,4 +31,7 @@ public class CreateUserRequest {
     @NotBlank(message = "Status cannot be blank")
     private String status;
 
+    @NotBlank(message = "Role cannot be blank")
+    private String role;
+
 }
